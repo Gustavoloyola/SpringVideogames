@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -7,6 +7,10 @@
 
 
     <style>
+
+        body{
+        background-color:black;
+        }
         .vj-destacados .card{
         height:100%;
         }
@@ -19,6 +23,16 @@
         .vj-col .card-text{
             text-align:justify;
 
+        }
+
+          .card-body {
+            display: flex;
+            flex-direction: column;
+            
+        }
+
+        .card-text {
+            flex-grow: 1;
         }
 
 
@@ -36,53 +50,22 @@
 
 <div class="container mt-4 vj-destacados" >
     <div class="row">
-        <div class="col-md-3 vj-col">
-            <div class="card" style="width: 18rem;">
-                <img src="https://sm.ign.com/ign_latam/screenshot/default/mw3-review-resena_smqy.jpg" class="card-img-top" alt="..." height="200px">
+        <div th:each="juego : ${videojuegos}"         class="col-md-3 mb-4 vj-col">
+            <div class="card" >
+                <img th:src="${juego.imagenUrl}" class="card-img-top" alt="..." height="200px">
                 <div class="card-body">
-                    <h5 class="card-title">Call of duty</h5>
-                    <p class="card-text mb-5 ">Call of Duty es una serie de videojuegos de disparos en primera persona, de estilo bélico, desarrollada principal e inicialmente por Infinity Ward, Treyarch, Sledgehammer Games y en menor proporción Raven Software y distribuida por Activision.</p>
+                    <h5 th:text="${juego.nombre}" class="card-title">Call of duty</h5>
+                    <p th:text="${juego.descripcion}" class="card-text ">Call of Duty es una serie de videojuegos de disparos en primera persona, de estilo bélico, desarrollada principal e inicialmente por Infinity Ward, Treyarch, Sledgehammer Games y en menor proporción Raven Software y distribuida por Activision.</p>
 
+                    <div class="card-footer text-muted mt-5">
 
                     <a href="#" class="btn btn-primary ">Ver detalles</a>
-
-
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3 vj-col">
-            <div class="card" style="width: 18rem;">
-                <img src="https://pic.clubic.com/v1/images/2147200/raw?fit=max&width=1200&hash=e2e4961fbb7ea47109686cae36f218e20c4d2896" class="card-img-top" alt="..." height="200px">
-                <div class="card-body">
-                    <h5 class="card-title">FC24</h5>
-                    <p class="card-text mb-5" >EA Sports FC 24​ es un videojuego de fútbol, desarrollado por EA, y publicado por EA Sports. Este juego marca la primera entrega de la serie EA Sports FC, ​ tras la conclusión de la asociación de EA con FIFA.</p>
-
-                    <a href="#" class="btn btn-primary mt-5">Verdetalles</a>
-
+                    </div>
 
                 </div>
             </div>
         </div>
-        <div class="col-md-3 vj-col">
-            <div class="card" style="width: 18rem;">
-                <img src="https://image.api.playstation.com/vulcan/ap/rnd/202306/1219/1c7b75d8ed9271516546560d219ad0b22ee0a263b4537bd8.png" class="card-img-top" alt="..." height="200px">
-                <div class="card-body">
-                    <h5 class="card-title">Spiderman 2</h5>
-                    <p class="card-text mb-5">Marvel's Spider-Man 2 es un videojuego de acción y aventuras desarrollado por Insomniac Games​​​ y publicado por Sony Interactive Entertainment.​​ Basado en el personaje de Marvel Comics</p>
-                    <a href="#" class="btn btn-primary mt-5">Ver detalles</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3 vj-col">
-            <div class="card" style="width: 18rem;">
-                <img src="https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch/70010000012332/ac4d1fc9824876ce756406f0525d50c57ded4b2a666f6dfe40a6ac5c3563fad9" class="card-img-top" alt="..." height="200px">
-                <div class="card-body">
-                    <h5 class="card-title">Super Smash Bros Ultimate</h5>
-                    <p class="card-text mb-4">Super Smash Bros. Ultimate es un videojuego de lucha desarrollado por Sora Ltd. y Bandai Namco Entertainment y distribuido por Nintendo para la consola Nintendo Switch. Fue lanzado a nivel mundial el 7 de diciembre de 2018 y se trata del quinto título de la serie Super Smash Bros.</p>
-                    <a href="#" class="btn btn-primary ">Ver detalles</a>
-                </div>
-            </div>
-        </div>
+
     </div>
 </div>
 

@@ -29,4 +29,8 @@ return videojuegoRepository.buscarTodos();
         return videojuegoRepository.buscar(consulta);
     }
 
+    public Videojuego guardar(Videojuego videojuego){
+        return videojuegoRepository.save(videojuego);
+    }
+
 }
